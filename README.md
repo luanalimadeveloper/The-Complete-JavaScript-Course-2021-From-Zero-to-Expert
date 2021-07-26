@@ -7,6 +7,8 @@
 - [x] Data Types 
 - [x] let, const var 
 - [x] Basic Operators
+- [x] Operator Precedence
+- [x] Coding Challenge #1
                                      
                                                                   
                                      
