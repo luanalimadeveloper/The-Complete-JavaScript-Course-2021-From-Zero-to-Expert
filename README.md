@@ -3,7 +3,7 @@
 
 Section | Topic
 --------- | ------
-JavaScript Fundamentals Part 1     | - [x] Venus  
+JavaScript Fundamentals Part 1     | - [ X ] Venus  
                                      
                                                                   
                                      
