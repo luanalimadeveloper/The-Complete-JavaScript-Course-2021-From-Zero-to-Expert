@@ -1,4 +1,5 @@
 /*
+// LINKING A JAVASCRIPT FILE
 let js = "amazing";
 console.log(40 + 8 + 23 - 10);
 
@@ -25,6 +26,9 @@ let job2 = 'teacher';
 console.log(myFirstJob);
 */
 
+
+/*
+// VALUES AND VARIABLES
 let javascriptIsFun = true;
 console.log(javascriptIsFun);
 
@@ -44,4 +48,21 @@ year = 1991;
 console.log(typeof year);
 
 console.log(typeof null);
+*/
 
+
+
+//DATA TYPES
+let age = 30;
+age = 31;
+
+const birthYear = 1992;
+//birthYear = 1990;
+
+//const job;
+
+var job = 'programer';
+job = 'teacher';
+
+lastName = 'Lima';
+console.log(lastName);
