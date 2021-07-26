@@ -3,7 +3,7 @@
 
 Section | Topic
 --------- | ------
-JavaScript Fundamentals Part 1     | - [ x ] Linking a JavaScript File  
+JavaScript Fundamentals Part 1     | - [ X ] Linking a JavaScript File  
                                      
                                                                   
                                      
