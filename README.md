@@ -3,7 +3,8 @@
 
 Section | Topic
 --------- | ------
-JavaScript Fundamentals Part 1     | * Linking a JavaScript File * Values and Variables 
-                                     * Data Types                                
-                                     * let, const var 
-                                     * Basic Operators
+JavaScript Fundamentals Part 1     | -[x] Linking a JavaScript File  
+                                     -[x] Values and Variables 
+                                     -[x] Data Types                                
+                                     -[x] let, const var 
+                                     -[x] Basic Operators
