@@ -9,6 +9,8 @@
 - [x] Basic Operators
 - [x] Operator Precedence
 - [x] Coding Challenge #1
+- [x] Strings and Template Literals
+- [x] Taking Decisions: if / else Statements
                                      
                                                                   
                                      
