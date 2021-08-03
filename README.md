@@ -11,6 +11,16 @@
 - [x] Coding Challenge #1
 - [x] Strings and Template Literals
 - [x] Taking Decisions: if / else Statements
+- [x] Coding Challenge #2
+- [x] Type Conversion and Coercion
+- [x] Truthy and Falsy Values
+- [x] Equality Operators: == vs. ===
+- [x] Logical Operators
+- [x] Coding Challenge #3
+- [x] The switch Statement
+- [x] Statements and Expressions
+- [x] The Conditional (Ternary) Operator
+- [x] Coding Challenge #4
                                      
                                                                   
                                      
