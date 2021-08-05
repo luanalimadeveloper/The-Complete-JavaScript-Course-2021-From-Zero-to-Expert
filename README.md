@@ -21,6 +21,19 @@
 - [x] Statements and Expressions
 - [x] The Conditional (Ternary) Operator
 - [x] Coding Challenge #4
+
+
+## JavaScript Fundamentals Part 2
+- [x] Activating Strict Mode
+- [x] Functions 
+- [x] Function Declarations vs. Expressions 
+- [x] Arrow functions
+- [x] Reviewing Functions
+- [x] Coding Challenge #1
+- [x] Introduction to Arrays
+
+
+
                                      
                                                                   
                                      
