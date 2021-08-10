@@ -1,5 +1,4 @@
-'use strict';
-
+"use strict";
 
 ///////////////////////////////////////
 // Activating Strict Mode
@@ -57,7 +56,6 @@ const age2 = calcAge2(1991);
 console.log(age1,age2);
 */
 
-
 ///////////////////////////////////////
 // Arrow functions
 
@@ -75,7 +73,6 @@ const yearsUntilRetirement = (birthYear, firstName) => {
 
 console.log(yearsUntilRetirement(1991, 'Luana')); console.log(yearsUntilRetirement(1980,'Bob'));
 */
-
 
 ///////////////////////////////////////
 // Reviewing Functions
@@ -156,7 +153,6 @@ console.log(scoreDolphins, scoreKoalas);
 checkWinner(scoreDolphins, scoreKoalas);
 */
 
-
 ///////////////////////////////////////
 // Introduction to Arrays
 
@@ -200,7 +196,6 @@ const ages = [calcAge(years[0]), calcAge(years[1]), calcAge(years[years.length -
 console.log(ages);
 */
 
-
 ///////////////////////////////////////
 // Basic Array Operations (Methods)
 /*
@@ -233,7 +228,6 @@ if (friends.includes('Steven')) {
   console.log('You have a friend called Steven');
 }
 */
-
 
 ///////////////////////////////////////
 // Coding Challenge #2
@@ -284,7 +278,6 @@ const jonas = {
 }; 
 */
 
-
 ///////////////////////////////////////
 // Introduction to Objects
 
@@ -300,7 +293,6 @@ const jonas = {
 console.log(jonas);
 console.log(jonas.lastname);
 */
-
 
 ///////////////////////////////////////
 // Dot vs. Bracket Notation
@@ -340,7 +332,6 @@ console.log(jonas);
 
 console.log(`${jonas.firstName} has ${jonas.friends.length} friends, and his best friend is called ${jonas.friends[0]}`);
 */
-
 
 ///////////////////////////////////////
 // Object Methods
@@ -382,7 +373,6 @@ console.log(jonas.age);
 // "Jonas is a 46-year old teacher, and he has a driver's license"
 console.log(jonas.getSummary());
 */
-
 
 ///////////////////////////////////////
 // Coding Challenge #3
@@ -427,7 +417,6 @@ if (mark.bmi > john.bmi){
 }
 */
 
-
 ///////////////////////////////////////
 // Iteration: The for Loop
 
@@ -450,7 +439,6 @@ for (let rep = 1; rep <= 30; rep++) {
   console.log(`Lifting weights repetition ${rep} 🏋️‍♀️`);
 }
 */
-
 
 ///////////////////////////////////////
 // Looping Arrays, Breaking and Continuing
@@ -507,7 +495,6 @@ for (let i = 0; i < jonas.length; i++) {
 }
 */
 
-
 ///////////////////////////////////////
 // Looping Backwards and Loops in Loops
 
@@ -538,7 +525,6 @@ for (let exercise = 1; exercise < 4; exercise++) {
 }
 */
 
-
 ///////////////////////////////////////
 // The while Loop
 
@@ -562,7 +548,6 @@ while (dice !== 6) {
 }
 */
 
-
 ///////////////////////////////////////
 // Coding Challenge #4
 
@@ -584,24 +569,24 @@ This is a DIFFICULT challenge (we haven't done this before)! Here is how to solv
 GOOD LUCK 😀
 */
 
-const calcTip = function(bill) {
-  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2; 
-}
+const calcTip = function (bill) {
+  return bill >= 50 && bill <= 300 ? bill * 0.15 : bill * 0.2;
+};
 
 const bills = [22, 295, 176, 440, 37, 105, 10, 1100, 86, 52];
 
 const tips = [];
 const totals = [];
 
-for (let i=0; i< bills.length; i++){
+for (let i = 0; i < bills.length; i++) {
   const tip = calcTip(bills[i]);
   tips.push(tip);
-  totals.push(tip+bills[i]);
+  totals.push(tip + bills[i]);
 }
 
 console.log(bills, tips, totals);
 
-// Bonus 
+// Bonus
 const calcAverage = function (arr) {
   let sum = 0;
   for (let i = 0; i < arr.length; i++) {
@@ -609,8 +594,7 @@ const calcAverage = function (arr) {
     sum += arr[i];
   }
   return sum / arr.length;
-}
+};
 console.log(calcAverage([2, 3, 7]));
 console.log(calcAverage(totals));
 console.log(calcAverage(tips));
-
