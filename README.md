@@ -1,11 +1,11 @@
 # The-Complete-JavaScript-Course-2021-From-Zero-to-Expert-
 
-
 ## JavaScript Fundamentals Part 1
+
 - [x] Linking a JavaScript File
-- [x] Values and Variables 
-- [x] Data Types 
-- [x] let, const var 
+- [x] Values and Variables
+- [x] Data Types
+- [x] let, const var
 - [x] Basic Operators
 - [x] Operator Precedence
 - [x] Coding Challenge #1
@@ -22,19 +22,23 @@
 - [x] The Conditional (Ternary) Operator
 - [x] Coding Challenge #4
 
-
 ## JavaScript Fundamentals Part 2
+
 - [x] Activating Strict Mode
-- [x] Functions 
-- [x] Function Declarations vs. Expressions 
+- [x] Functions
+- [x] Function Declarations vs. Expressions
 - [x] Arrow functions
 - [x] Reviewing Functions
 - [x] Coding Challenge #1
 - [x] Introduction to Arrays
-
-
-
-                                     
-                                                                  
-                                     
-                                     
+- [x] Basic Array Operations (Methods)
+- [x] Coding Challenge #2
+- [x] Introduction to Objects
+- [x] Dot vs. Bracket Notation
+- [x] Object Methods
+- [x] Coding Challenge #3
+- [x] Iteration: The for Loop
+- [x] Looping Arrays, Breaking and Continuing
+- [x] Looping Backwards and Loops in Loops
+- [x] The while Loop
+- [x] Coding Challenge #4
