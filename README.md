@@ -1,4 +1,4 @@
-# The-Complete-JavaScript-Course-2021-From-Zero-to-Expert-
+# The Complete JavaScript Course 2021 From Zero to Expert
 
 ## JavaScript Fundamentals Part 1
 
