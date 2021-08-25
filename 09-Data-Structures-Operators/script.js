@@ -45,6 +45,30 @@ const restaurant = {
   },
 };
 
+////////////////////////////////////
+// Rest Operator
+// Rest operator - to pack elemnts into an array
+
+// SPREAD, because on RIGHT side of =
+const arr = [1, 2, ...[3, 4]];
+
+// REST, because on LEFT side of =
+const [a, b, ...others] = [1, 2, 3, 4, 5];
+console.log(a, b, others);
+
+const [pizza, , risotto, ...otherFood] = [
+  ...restaurant.mainMenu,
+  ...restaurant.starterMenu,
+];
+
+console.log(pizza, risottto, othersFood);
+
+// objects
+
+/*
+////////////////////////////////////
+// The Spread Operator (...)
+
 // Expand an Array
 const arr = [7, 8, 9];
 const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
