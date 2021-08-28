@@ -108,6 +108,24 @@ const game = {
   },
 };
 
+////////////////////////////////////
+// Loping Arrays: The for-f Loop
+
+const menu = [...restaurant.starterMenu, ...restaurant.mainMenu];
+
+for (const item of menu) console.log(item);
+
+//for (const item of menu.entries()) {
+//  console.log(`${item[0] + 1}: ${item[1]}`);
+//}
+for (const [i, el] of menu.entries()) {
+  console.log(`${i + 1}: ${el}`);
+}
+
+/*
+////////////////////////////////////
+// Coding Challenge #1
+
 // 1)
 
 const [players1, players2] = game.players;
