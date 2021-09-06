@@ -42,3 +42,8 @@
 - [x] Looping Backwards and Loops in Loops
 - [x] The while Loop
 - [x] Coding Challenge #4
+
+## 09 - Data Structures Operators
+
+- [x] Default Parameters
+- [x] How Passing Arguments Works: Value vs. Reference
