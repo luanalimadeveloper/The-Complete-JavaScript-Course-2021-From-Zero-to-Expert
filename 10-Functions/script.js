@@ -61,6 +61,60 @@ console.log(swiss);
 // Modern JavaScript
 book.call(swiss, ...flightData);
 
+//////// The Bind Method
+
+//book.call(eurowings, 23, 'Sarah Williams');
+
+const bookEW = book.bind(eurowings);
+//const bookLH = book.bind(lufthansa);
+//const bookLX = book.bind(swiss);
+
+bookEW(23, 'Steven Willian');
+
+// // partial application - already set.
+const bookEW23 = book.bind(eurowings, 2323);
+bookEW23('Luana Lima');
+bookEW23('Martha Cooper');
+
+// With Event Listeners
+
+lufthansa.planes = 300;
+lufthansa.buyPlane = function () {
+  console.log(this);
+
+  this.planes++;
+  console.log(this.planes);
+};
+
+// lufthansa.buyPlane();
+
+// AddEventListener is the higher order function, which receives a callback function (lufthansa.buyPlane)
+// point to lufthansa - bind(lufthansa)
+document
+  .querySelector('.buy')
+  .addEventListener('click', lufthansa.buyPlane.bind(lufthansa));
+
+// Partial application
+// Binds gives us a new function - a new specific function from the addTax function.
+const addTax = (rate, value) => value + value * rate;
+console.log(addTax(0.1, 200));
+
+const addVAT = addTax.bind(null, 0.23);
+// addVAT = value => value + value * 0.23;
+
+console.log(addVAT(100));
+console.log(addVAT(23));
+
+const addTaxRate = function (rate) {
+  return function (value) {
+    return value + value * rate;
+  };
+};
+
+const addVAT2 = addTaxRate(0.23);
+console.log(addVAT2(100));
+console.log(addVAT2(23));
+
 /*
 ///////////////////////////////////////
 // Functions Returning Functions
