@@ -1,6 +1,28 @@
 'use strict';
 
 ///////////////////////////////////////
+// Functions Returning Functions
+
+const greet = function (greeting) {
+  return function (name) {
+    console.log(`${greeting} ${name}`);
+  };
+};
+
+const greeterHey = greet('Hey');
+greeterHey('Luana');
+greeterHey('Julia');
+
+greet('Hello')('Maria');
+
+// Challenge Arrow function
+// Arrow function returning arrow function
+
+const greetArr = greeting => name => console.log(`${greeting} ${name}`);
+greetArr('Hi')('Luana');
+
+/*
+///////////////////////////////////////
 // Functions Accepting Callback Functions
 
 // Low-level functions
