@@ -1,5 +1,5 @@
 'use strict';
-/*
+
 const weekdays = ['mon', 'tue', 'wed', 'thu', 'fri', 'sat', 'sun'];
 const openingHours = {
   [weekdays[3]]: {
@@ -15,8 +15,41 @@ const openingHours = {
     close: 24,
   },
 };
-*/
 
+// Data needed for first part of the section
+const restaurant = {
+  name: 'Classico Italiano',
+  location: 'Via Angelo Tavanti 23, Firenze, Italy',
+  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
+  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
+  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
+
+  // ES6 enhanced object literals
+  openingHours,
+
+  order(starterIndex, mainIndex) {
+    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
+  },
+
+  orderDelivery({ starterIndex = 1, mainIndex = 0, time = '20:00', address }) {
+    console.log(
+      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
+    );
+  },
+
+  orderPasta(ing1, ing2, ing3) {
+    console.log(
+      `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
+    );
+  },
+
+  orderPizza(mainIngredient, ...otherIngredients) {
+    console.log(mainIngredient);
+    console.log(otherIngredients);
+  },
+};
+
+/*
 ///////////////////////////////////////
 // String Methods Practice
 
@@ -74,6 +107,7 @@ Afterwards, test with your own test data!
 GOOD LUCK 😀
 */
 
+/*
 document.body.append(document.createElement('textarea'));
 document.body.append(document.createElement('button'));
 const text = document.querySelector('textarea').value;
@@ -94,6 +128,7 @@ document.querySelector('button').addEventListener('click', function () {
     console.log(`${output.padEnd(20)}${'✅'.repeat(i + 1)}`);
   }
 });
+*/
 
 /*
 ///////////////////////////////////////
@@ -560,41 +595,9 @@ const entries = Object.entries(openingHours);
 for (const [day, { open, close }] of entries) {
   console.log(`On ${day} we open at ${open} and close at ${close}`);
 }
+*/
 
 /*
-// Data needed for first part of the section
-const restaurant = {
-  name: 'Classico Italiano',
-  location: 'Via Angelo Tavanti 23, Firenze, Italy',
-  categories: ['Italian', 'Pizzeria', 'Vegetarian', 'Organic'],
-  starterMenu: ['Focaccia', 'Bruschetta', 'Garlic Bread', 'Caprese Salad'],
-  mainMenu: ['Pizza', 'Pasta', 'Risotto'],
-
-  // ES6 enhanced object literals
-  openingHours,
-
-  order(starterIndex, mainIndex) {
-    return [this.starterMenu[starterIndex], this.mainMenu[mainIndex]];
-  },
-
-  orderDelivery({ starterIndex = 1, mainIndex = 0, time = '20:00', address }) {
-    console.log(
-      `Order received! ${this.starterMenu[starterIndex]} and ${this.mainMenu[mainIndex]} will be delivered to ${address} at ${time}`
-    );
-  },
-
-  orderPasta(ing1, ing2, ing3) {
-    console.log(
-      `Here is your delicious pasta with ${ing1}, ${ing2} and ${ing3}`
-    );
-  },
-
-  orderPizza(mainIngredient, ...otherIngredients) {
-    console.log(mainIngredient);
-    console.log(otherIngredients);
-  },
-};
-
 ///////////////////////////////////////
 // Optional Chaining
 
@@ -632,11 +635,11 @@ console.log(users[0]?.name ?? 'User array empty');
 
 //if (users.length > 0) console.log(users[0].name);
 //else console.log('user array empty');
-
+*/
 ///////////////////////////////////////
 // Coding Challenge #1
 
-/* 
+/*
 We're building a football betting app (soccer for my American friends 😅)!
 Suppose we get data from a web service about a certain game (below). In this challenge we're gonna work with the data. So here are your tasks:
 1. Create one player array for each team (variables 'players1' and 'players2')
@@ -650,7 +653,6 @@ TEST DATA FOR 6: Use players 'Davies', 'Muller', 'Lewandowski' and 'Kimmich'. Th
 GOOD LUCK 😀
 */
 
-/*
 const game = {
   team1: 'Bayern Munich',
   team2: 'Borrussia Dortmund',
@@ -706,7 +708,6 @@ for (const [i, el] of menu.entries()) {
   console.log(`${i + 1}: ${el}`);
 }
 
-/*
 ////////////////////////////////////
 // Coding Challenge #1
 
@@ -761,10 +762,9 @@ console.log('Question 7)');
 team1 < team2 && console.log('Team 1 is more likely to win');
 team2 < team1 && console.log('Team 2 is more likely to win');
 
-/*
 ////////////////////////////////////
 // Nullish Coalescing Operator
-
+/*
 restaurant.numGuests = 0;
 const guests = restaurant.numGuests || 10;
 console.log(guests);
@@ -772,12 +772,14 @@ console.log(guests);
 // Nullish: null and undefined (not 0 or '')
 const guestCorrect = restaurant.numGuests ?? 10;
 console.log(guestCorrect);
+*/
 
-/*
 ////////////////////////////////////
 // Short Circuiting (&& and ||)
 // Or operator
 // The OR operator will return the first truthy value
+/*
+
 console.log(3 || 'Jonas');
 console.log('' || 'Jonas');
 console.log(true || 0);
@@ -807,13 +809,13 @@ if (restaurant.orderPizza) {
 }
 
 restaurant.orderPizza && restaurant.orderPizza('mushrooms', 'spinach');
-
-/*
-// 1) Destructuring
+*/
 
 ////////////////////////////////////
 // Rest Operator
-// Rest operator - to pack elemnts into an array
+// Rest operator - to pack elements into an array
+/*
+// 1) Destructuring
 
 // SPREAD, because on RIGHT side of =
 const arr = [1, 2, ...[3, 4]];
@@ -830,7 +832,7 @@ const [pizza, , risotto, ...otherFood] = [
 console.log(pizza, risotto, otherFood);
 
 // objects
-const { sat, ...weekdays } = restaurant.openingHours;
+//const { sat, ...weekdays } = restaurant.openingHours;
 console.log(weekdays);
 
 // 2) Functions
@@ -850,11 +852,10 @@ add(...x);
 
 restaurant.orderPizza('mushrooms', 'onion', 'olives', 'spinach');
 restaurant.orderPizza('mushrooms');
-
-/*
+*/
 ////////////////////////////////////
 // The Spread Operator (...)
-
+/*
 // Expand an Array
 const arr = [7, 8, 9];
 const badNewArr = [1, 2, arr[0], arr[1], arr[2]];
@@ -870,7 +871,6 @@ const newMenu = [...restaurant.mainMenu, 'Gnocci'];
 console.log(newMenu);
 
 // Copy array
-
 const mainMenuCopy = [...restaurant.mainMenu];
 
 // Join 2 arrays
@@ -886,9 +886,9 @@ console.log('j', 'o');
 
 // Real World examples
 const ingredients = [
-  //  prompt("Let's make pasta! Ingredient 1?"),
-  //  prompt('Ingredient 2?'),
-  //  prompt('Infredient 3'),
+  // prompt("Let's make pasta! Ingredient 1?"),
+  // prompt('Ingredient 2?'),
+  // prompt('Infredient 3'),
 ];
 console.log(ingredients);
 
@@ -904,7 +904,6 @@ restaurantCopy.name = 'Ristorante Roma';
 console.log(restaurantCopy.name);
 console.log(restaurant.name);
 
-/*
 restaurant.orderDelivery({
   time: '22:30',
   address: 'Via del Sole, 21',
@@ -916,13 +915,12 @@ restaurant.orderDelivery({
   address: 'Via del Sole, 21',
   starterIndex: 1,
 });
-
-
+*/
 ///////////////////////////////////////
 // Destructuring Objects
-
-const { name, openingHours, categories } = restaurant;
-console.log(name, openingHours, categories);
+/*
+const { name, categories } = restaurant;
+console.log(name, categories);
 
 const {
   name: restaurantName,
@@ -947,8 +945,9 @@ const {
   fri: { open: o, close: c },
 } = openingHours;
 console.log(o, c);
+*/
 
-
+/*
 ///////////////////////////////////////
 // Destructuring Arrays
 
@@ -969,7 +968,7 @@ console.log(main, secondary);
 // const temp = main;
 //main = secondary;
 //secondary = temp;
-//console.log(main, secondary); 
+//console.log(main, secondary);
 
 [main, secondary] = [secondary, main];
 console.log(main, secondary);
@@ -987,5 +986,4 @@ const [i, , [j, k]] = nested;
 console.log(i, j, k);
 
 const [p = 1, q = 1, r = 1] = [8, 9];
-console.log(p, q, r); 
-*/
+console.log(p, q, r); */
