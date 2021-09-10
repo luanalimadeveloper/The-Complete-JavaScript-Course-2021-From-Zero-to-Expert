@@ -37,21 +37,100 @@ BONUS TEST DATA 2: [1, 5, 3, 9, 6, 1]
 GOOD LUCK 😀
 */
 
+/*
+// Luana's solution
+
+const poll = {
+  question: 'What is your favourite programming language?',
+
+  options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
+  // This generates [0, 0, 0, 0]. More in the next section!
+
+  registerNewAnswer: function () {
+    let phrase = '';
+    for (const [i, el] of this.options.entries()) {
+      phrase = phrase + el + '\n';
+    }
+
+    const numberOption = parseInt(prompt(`${this.question}\n${phrase}`));
+    console.log(numberOption);
+
+    if (
+      numberOption >= 0 &&
+      numberOption <= 3 &&
+      typeof numberOption == 'number'
+    ) {
+      this.answers[numberOption] = this.answers[numberOption] + 1;
+      console.log(this.answers);
+    } else {
+      console.log('Not permited');
+    }
+  },
+
+  answers: new Array(4).fill(0),
+
+  displayResults: function (type = 'string') {
+    if (typeof type === 'string') {
+      console.log(this.answers);
+    } else if (typeof type === 'Array') {
+      console.log('not string');
+    }
+  },
+};
+
+const a = [1, 2];
+document
+  .querySelector('.poll')
+  .addEventListener('click', poll.registerNewAnswer.bind(poll));
+
+poll.displayResults(a);
+*/
+
+// Solution
 const poll = {
   question: 'What is your favourite programming language?',
   options: ['0: JavaScript', '1: Python', '2: Rust', '3: C++'],
   // This generates [0, 0, 0, 0]. More in the next section!
-  registerNewAnswer: function () {
-    let phase = '';
-    for (const [i, el] of this.options.entries()) {
-      phase = phase + el + '\n';
-    }
-    prompt(`${this.question}\n${phase}`);
-  },
   answers: new Array(4).fill(0),
+  registerNewAnser() {
+    // Get anser
+    const answer = Number(
+      prompt(
+        `${this.quesstion}\n${this.options.join('\n')}\n(Write option number)`
+      )
+    );
+    console.log(answer);
+
+    // Register awswer
+    typeof answer === 'number' &&
+      answer < this.answers.length &&
+      this.answers[answer]++;
+
+    this.displayResults();
+    this.displayResults('string');
+  },
+
+  displayResults(type = 'array') {
+    if (type === 'array') {
+      console.log(this.answers);
+    } else if (type === 'string') {
+      // Poll results are 13, 2, 4, 1
+      console.log(`Poll results are ${this.answers.join(', ')}`);
+    }
+  },
 };
 
-poll.registerNewAnswer();
+//poll.registerNewAnser();
+document
+  .querySelector('.poll')
+  .addEventListener('click', poll.registerNewAnser.bind(poll));
+
+// [5, 2, 3]
+// [1, 5, 3, 9, 6, 1]
+
+poll.displayResults.call({ answers: [5, 2, 3] }, 'string');
+poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] }, 'string');
+poll.displayResults.call({ answers: [1, 5, 3, 9, 6, 1] });
 
 /*
 ///////////////////////////////////////
