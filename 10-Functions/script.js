@@ -1,6 +1,28 @@
 'use strict';
 
 ///////////////////////////////////////
+// Closures
+// A closure makes a function remember all the variables that existed at the function's birthplace
+
+const secureBooking = function () {
+  let passengerCount = 0;
+
+  return function () {
+    passengerCount++;
+    console.log(`${passengerCount} passengers`);
+  };
+};
+
+const booker = secureBooking();
+
+booker();
+booker();
+booker();
+
+console.dir(booker);
+
+/*
+///////////////////////////////////////
 // Immediately Invoked Function Expressions (IIFE)
 
 const runOnce = function () {
@@ -25,7 +47,7 @@ runOnce();
 }
 //console.log(isPrivate);
 console.log(notPrivate);
-
+*/
 ///////////////////////////////////////
 // Coding Challenge #1
 
