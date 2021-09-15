@@ -210,19 +210,20 @@ Hints: Use tools from all lectures in this section so far.
 GOOD LUCK 
 */
 
+/*
 const juliasData = [3, 5, 2, 12, 7];
 const katesData = [4, 1, 15, 8, 3];
 const juliasData2 = [9, 16, 6, 8, 3];
 const katesData2 = [10, 5, 6, 1, 4];
 
 const checkDogs = function (dogsJulia, dogsKate) {
-  const newDogsJulia = dogsJulia.slice(1, 4);
+  const newDogsJulia = dogsJulia.slice(1, 3);
   console.log(newDogsJulia);
 
   const joinDogs = newDogsJulia.concat(dogsKate);
   console.log(joinDogs);
 
-  joinDogs.forEach(function (dog, i, arr) {
+  joinDogs.forEach(function (dog, i) {
     dog >= 3
       ? console.log(`Dog number ${i} is an adult, and is ${dog} years old`)
       : console.log(`Dog number ${i} is still a puppy`);
@@ -232,3 +233,37 @@ const checkDogs = function (dogsJulia, dogsKate) {
 checkDogs(juliasData, katesData);
 console.log('Test 2');
 checkDogs(juliasData2, katesData2);
+*/
+
+/////////////////////////////////////////////////
+// The Map Method
+
+const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
+
+const eurToUsd = 1.1;
+
+// const movementsUSD = movements.map(function (mov) {
+//   return mov * eurToUsd;
+// });
+
+// console.log(movements);
+// console.log(movementsUSD);
+
+// With arrow function
+const movementsUSD = movements.map(mov => mov * eurToUsd);
+
+console.log(movements);
+console.log(movementsUSD);
+
+// With for of
+const movementsUSDfor = [];
+for (const mov of movements) movementsUSDfor.push(mov * eurToUsd);
+console.log(movementsUSDfor);
+
+const movementsDescriptions = movements.map(
+  (mov, i) =>
+    `Movement ${i + 1}: You ${mov > 0 ? 'deposited' : 'withdrew'} ${Math.abs(
+      mov
+    )}`
+);
+console.log(movementsDescriptions);
