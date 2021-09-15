@@ -80,6 +80,23 @@ const displayMovements = function (movements) {
   });
 };
 displayMovements(account1.movements);
+
+// create a new array - map
+// modify (mutate) a array - for each
+
+const createUsernames = function (accs) {
+  accs.forEach(function (acc) {
+    acc.username = acc.owner
+      .toLowerCase()
+      .split(' ')
+      .map(name => name[0])
+      .join('');
+  });
+};
+
+createUsernames(accounts);
+console.log(accounts);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -235,6 +252,7 @@ console.log('Test 2');
 checkDogs(juliasData2, katesData2);
 */
 
+/*
 /////////////////////////////////////////////////
 // The Map Method
 
@@ -267,3 +285,4 @@ const movementsDescriptions = movements.map(
     )}`
 );
 console.log(movementsDescriptions);
+*/
