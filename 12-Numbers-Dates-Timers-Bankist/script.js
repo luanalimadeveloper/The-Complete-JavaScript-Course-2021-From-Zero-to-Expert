@@ -343,7 +343,7 @@ console.log(+(2.345).toFixed(2));
 
 /////////////////////////////////////////////////
 // The Remainder Operator
-
+/*
 console.log(5 % 2);
 console.log(5 / 2); // 5 = 2 * 2 + 1
 
@@ -365,3 +365,40 @@ labelBalance.addEventListener('click', function () {
     if (i % 3 === 0) row.style.backgroundColor = 'blue';
   });
 });
+*/
+/////////////////////////////////////////////////
+// Working with BigInt
+
+// safe
+console.log(2 ** 53 - 1);
+console.log(Number.MAX_SAFE_INTEGER);
+
+// unsafe naumbers]
+console.log(2 ** 53 + 1);
+console.log(2 ** 53 + 2);
+console.log(2 ** 53 + 3);
+
+// Big int
+console.log(6473678246738264783627846738264732n);
+console.log(BigInt(64736782));
+
+// Operations
+console.log(10000n + 10000n);
+console.log(43876748637648274782n * 732674863746372n);
+//console.log(Math.sqrt(16n)); // doenst work
+
+const huge = 483748738947834343n;
+const num = 23;
+console.log(huge * BigInt(num));
+
+// Exceptions
+console.log(20n > 15);
+console.log(20n === 20);
+console.log(typeof 20n);
+console.log(20n == '20');
+
+console.log(huge + ' is a really big !!!!');
+
+// Divisions
+console.log(14n / 3n);
+console.log(10 / 3);
