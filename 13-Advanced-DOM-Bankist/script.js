@@ -80,10 +80,10 @@ document
     message.remove();
     // message.parentElement.removeChild(message);
   });
-
+*/
 //////////////////////////////////////
 // Styles, Attributes and Classes
-
+/*
 // Styles
 message.style.backgroundColor = '#37383d';
 message.style.width = '120%';
@@ -139,7 +139,7 @@ logo.className = 'jonas';
 
 //////////////////////////////////////
 //Implementing Smooth Scrolling
-
+/*
 const btnScrollTo = document.querySelector('.btn--scroll-to');
 const section1 = document.querySelector('#section--1');
 
@@ -176,3 +176,19 @@ btnScrollTo.addEventListener('click', function (e) {
   // New way Scroll the page
   section1.scrollIntoView({ behavior: 'smooth' });
 });
+*/
+//////////////////////////////////////
+//Types of Events and Event Handlers
+const h1 = document.querySelector('h1');
+
+const alertH1 = function (e) {
+  alert('addEventLIstener: Great! You are reading the heading ;D');
+};
+
+h1.addEventListener('mouseenter', alertH1);
+
+setTimeout(() => h1.removeEventListener('mouseenter', alertH1), 3000);
+
+// h1.onmouseenter = function (e) {
+//   alert('onmousernter: Great! You are reading the heading ;D');
+// };
