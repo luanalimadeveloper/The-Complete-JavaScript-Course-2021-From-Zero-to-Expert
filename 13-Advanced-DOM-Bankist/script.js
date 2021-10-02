@@ -146,18 +146,86 @@ const handleHover = function (e) {
 };
 
 // Passing "argument" into an eventHandler function (can only have one argument).
-nav.addEventListener('mouseover', handleHover.bind(0.5));
-nav.addEventListener('mouseout', handleHover.bind(1));
 
-// Stick navigation
-const initialCoords = section1.getBoundingClientRect();
-console.log(initialCoords);
+// nav.addEventListener('mouseover', handleHover.bind(0.5));
+// nav.addEventListener('mouseout', handleHover.bind(1));
 
-window.addEventListener('scroll', function () {
-  //console.log(window.scrollY);
+// // Stick navigation
+// const initialCoords = section1.getBoundingClientRect();
+// console.log(initialCoords);
 
-  if (window.scrollY > initialCoords.top) nav.classList.add('sticky');
+// window.addEventListener('scroll', function () {
+//   //console.log(window.scrollY);
+
+//   if (window.scrollY > initialCoords.top) nav.classList.add('sticky');
+//   else nav.classList.remove('sticky');
+// });
+
+// Stick navigation: Intersection Observer API,
+
+// 4. Callback function
+// This callback function here will get called each time that the observed element (target element) is intersecting the root element at the threshold that we defined.
+/*
+const obsCallback = function (entries, observer) {
+  entries.forEach(entry => {
+    console.log(entry);
+  });
+};
+// 3. Options (object)
+const obsOptions = {
+  //root : the element that the target is intersecting.
+  root: null, // viewport - set to null
+  // threshold: the percentage of intersection at which the observer callback will be called.
+  threshold: [0, 0.2], // 0 : completely out of the view,
+};
+// 1. Creat a new intersection observer
+const observer = new IntersectionObserver(obsCallback, obsOptions);
+// 2. Observe a certain target
+observer.observe(section1);
+*/
+
+const header = document.querySelector('.header');
+const navHeight = nav.getBoundingClientRect().height;
+console.log(navHeight);
+
+// add and to remove the stick class
+const stickNav = function (entries) {
+  const [entry] = entries; // equal to entries[0]
+  //console.log(entry);
+
+  //if the target isnt intersecting the root, then the sticky class will be applied.
+  if (!entry.isIntersecting) nav.classList.add('sticky');
   else nav.classList.remove('sticky');
+};
+
+const headerObserver = new IntersectionObserver(stickNav, {
+  root: null,
+  threshold: 0,
+  rootMargin: `-${navHeight}px`, //  90 px before the threshold was actually reached
+});
+headerObserver.observe(header);
+
+// Reveal section
+const allSections = document.querySelectorAll('.section');
+
+const revealSection = function (entries, observer) {
+  //const [entry] = entries;
+  console.log(entry);
+
+  if (!entry.isIntersecting) return;
+  entry.target.classList.remove('section--hidden');
+
+  //observer.unobserve(entry.target);
+};
+
+const sectionObserver = new IntersectionObserver(revealSection, {
+  root: null,
+  threshold: 0.15,
+});
+
+allSections.forEach(function (section) {
+  sectionObserver.observe(section);
+  section.classList.add('section--hidden');
 });
 
 ///////////////////////////////////////
