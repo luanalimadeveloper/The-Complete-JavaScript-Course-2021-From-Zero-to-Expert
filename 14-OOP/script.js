@@ -2,7 +2,7 @@
 
 ///////////////////////////////////////
 // Constructor Functions and the new Operator
-
+/*
 // Constructor function: Only function declarations and function expressions
 const Person = function (firstName, birthYear) {
   // Instance properties - Set properties to that object.
@@ -30,10 +30,11 @@ const jack = new Person('Jack', 1975);
 console.log(matilda, jack);
 
 console.log(luana instanceof Person);
+*/
 
 ///////////////////////////////////////
 // Prototypes
-
+/*
 console.log(Person.prototype);
 
 Person.prototype.calcAge = function () {
@@ -56,10 +57,10 @@ console.log(luana.species, matilda.species);
 console.log(luana.hasOwnProperty('firstName'));
 // It simply has access to it because of its prototype.
 console.log(luana.hasOwnProperty('species'));
-
+*/
 ///////////////////////////////////////
 // Prototypal Inheritance on Built-In Objects
-
+/*
 // Object.prototype (top of prototype chain)
 console.log(luana.__proto__);
 console.log(luana.__proto__.__proto__.__proto__);
@@ -83,7 +84,7 @@ console.log(arr.unique());
 
 const h1 = document.querySelector('h1');
 console.dir(x => x + 1);
-
+*/
 ///////////////////////////////////////
 // Coding Challenge #1
 
@@ -104,7 +105,7 @@ Test data:
 - Data car 2: 'Mercedes' going at 95 km/h
 
 */
-
+/*
 const Car = function (make, speed) {
   this.make = make;
   this.speed = speed;
@@ -128,3 +129,45 @@ car1.accelerate();
 car2.accelerate();
 car1.brake();
 car2.brake();
+*/
+
+///////////////////////////////////////
+// ES6 Classes
+//Classes in JavaScript are synthetic sugar - implement prototypal inheritance behind the scenes
+
+// Behind the scenes classes are still functions
+// class expression
+//const PersonCl = class {};
+
+// class declaration
+class PersonCl {
+  constructor(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  }
+
+  // Methods will be added to prototype property
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  }
+
+  greet() {
+    console.log(`Hey ${this.firstName}`);
+  }
+}
+
+const jessica = new PersonCl('Jessica', 1996);
+console.log(jessica);
+jessica.calcAge();
+
+console.log(jessica.__proto__ === PersonCl.prototype);
+
+// PersonCl.prototype.greet = function () {
+//   console.log(`Hey ${this.firstName}`);
+// };
+
+jessica.greet();
+
+// 1. Classes are NOT hoisted : We cant use them before they are declared in the code.
+// 2. Classes are first-class citizes : pass them into functions and also return them from functions.
+// 3. Classes are executed in strict mode.
