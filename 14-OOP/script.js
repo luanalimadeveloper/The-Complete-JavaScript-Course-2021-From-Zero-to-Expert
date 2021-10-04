@@ -1,5 +1,8 @@
 'use strict';
 
+///////////////////////////////////////
+// Constructor Functions and the new Operator
+
 // Constructor function: Only function declarations and function expressions
 const Person = function (firstName, birthYear) {
   // Instance properties - Set properties to that object.
@@ -27,3 +30,101 @@ const jack = new Person('Jack', 1975);
 console.log(matilda, jack);
 
 console.log(luana instanceof Person);
+
+///////////////////////////////////////
+// Prototypes
+
+console.log(Person.prototype);
+
+Person.prototype.calcAge = function () {
+  console.log(2037 - this.birthYear);
+};
+
+luana.calcAge();
+matilda.calcAge();
+
+console.log(luana.__proto__);
+console.log(luana.__proto__ === Person.prototype);
+
+console.log(Person.prototype.isPrototypeOf(luana));
+
+// .prototypeOfLinkedObjects
+// it sets the proto property on the object to the prototype property of the constructor function.
+Person.prototype.species = 'Homo Sapiens';
+console.log(luana.species, matilda.species);
+
+console.log(luana.hasOwnProperty('firstName'));
+// It simply has access to it because of its prototype.
+console.log(luana.hasOwnProperty('species'));
+
+///////////////////////////////////////
+// Prototypal Inheritance on Built-In Objects
+
+// Object.prototype (top of prototype chain)
+console.log(luana.__proto__);
+console.log(luana.__proto__.__proto__.__proto__);
+
+console.log(Person.prototype.constructor);
+
+const arr = [3, 6, 6, 5, 6, 9, 9]; // new Array === []
+console.log(arr.__proto__);
+
+// The prototype property of the constructor is  the prototype of all the objects created by that constructor.
+console.log(arr.__proto__ === Array.prototype);
+
+// Methods here that are available for objects
+console.log(arr.__proto__.__proto__);
+
+Array.prototype.unique = function () {
+  return [...new Set(this)];
+};
+
+console.log(arr.unique());
+
+const h1 = document.querySelector('h1');
+console.dir(x => x + 1);
+
+///////////////////////////////////////
+// Coding Challenge #1
+
+/*
+
+1. Use a constructor function to implement a 'Car'. A car has a 'make' and a
+'speed' property. The 'speed' property is the current speed of the car in
+km/h
+2. Implement an 'accelerate' method that will increase the car's speed by 10,
+and log the new speed to the console
+3. Implement a 'brake' method that will decrease the car's speed by 5, and log
+the new speed to the console
+4. Create 2 'Car' objects and experiment with calling 'accelerate' and
+'brake' multiple times on each of them
+
+Test data:
+- Data car 1: 'BMW' going at 120 km/h
+- Data car 2: 'Mercedes' going at 95 km/h
+
+*/
+
+const Car = function (make, speed) {
+  this.make = make;
+  this.speed = speed;
+};
+
+Car.prototype.accelerate = function () {
+  this.speed += 10;
+  console.log(`${this.make} is going at ${this.speed}`);
+};
+
+Car.prototype.brake = function () {
+  this.speed -= 5;
+  console.log(`${this.make} is going at ${this.speed}`);
+};
+
+const car1 = new Car('BMW', 120);
+const car2 = new Car('Mercedes', 95);
+
+car1.accelerate();
+car1.accelerate();
+car2.accelerate();
+car1.brake();
+car2.brake();
