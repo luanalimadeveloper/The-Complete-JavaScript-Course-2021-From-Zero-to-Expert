@@ -186,7 +186,7 @@ console.log(jessica.__proto__ === PersonCl.prototype);
 jessica.greet();
 
 // 1. Classes are NOT hoisted : We cant use them before they are declared in the code.
-// 2. Classes are first-class citizes : pass them into functions and also return them from functions.
+// 2. Classes are first-class citizen : pass them into functions and also return them from functions.
 // 3. Classes are executed in strict mode.
 
 const walter = new PersonCl('Walter White', 1965);
