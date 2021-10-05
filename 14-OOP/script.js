@@ -2,7 +2,7 @@
 
 ///////////////////////////////////////
 // Constructor Functions and the new Operator
-/*
+
 // Constructor function: Only function declarations and function expressions
 const Person = function (firstName, birthYear) {
   // Instance properties - Set properties to that object.
@@ -30,7 +30,12 @@ const jack = new Person('Jack', 1975);
 console.log(matilda, jack);
 
 console.log(luana instanceof Person);
-*/
+
+Person.hey = function () {
+  console.log('Hey there 😊');
+  console.log(this);
+};
+Person.hey();
 
 ///////////////////////////////////////
 // Prototypes
@@ -146,7 +151,7 @@ class PersonCl {
     this.fullName = fullName;
     this.birthYear = birthYear;
   }
-
+  // Instances methods
   // Methods will be added to prototype property
   calcAge() {
     console.log(2037 - this.birthYear);
@@ -170,6 +175,12 @@ class PersonCl {
   get fullName() {
     return this._fullName;
   }
+
+  // Static method
+  static hey() {
+    console.log('Hey there 😉');
+    console.log(this);
+  }
 }
 
 const jessica = new PersonCl('Jessica Davis', 1996);
@@ -190,6 +201,7 @@ jessica.greet();
 // 3. Classes are executed in strict mode.
 
 const walter = new PersonCl('Walter White', 1965);
+PersonCl.hey();
 
 ///////////////////////////////////////
 // Setters and Getters
@@ -211,3 +223,29 @@ console.log(account.latest);
 
 account.latest = 50;
 console.log(account.movements);
+
+///////////////////////////////////////
+// Object create
+
+const PersonProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+
+const steven = Object.create(PersonProto);
+console.log(steven);
+steven.name = 'Steven';
+steven.birthYear = 2022;
+steven.calcAge();
+
+console.log(steven.__proto__ === PersonProto);
+
+const sarah = Object.create(PersonProto);
+sarah.init('Sarah', 1979);
+sarah.calcAge();
