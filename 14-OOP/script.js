@@ -359,7 +359,7 @@ Test data:
 - Data car 1: 'Tesla' going at 120 km/h, with a charge of 23%
 
 */
-
+/*
 const Car = function (make, speed) {
   this.make = make;
   this.speed = speed;
@@ -400,10 +400,11 @@ tesla.chargeBattery(90);
 console.log(tesla);
 tesla.brake();
 tesla.accelerate();
+*/
 
 ///////////////////////////////////////
 // Inheritance Between "Classes": ES6 Classes
-
+/*
 class PersonCl {
   constructor(fullName, birthYear) {
     this.fullName = fullName;
@@ -465,3 +466,37 @@ class StudentCl extends PersonCl {
 const martha = new StudentCl('Martha Jones', 2012, 'Computer Science');
 martha.introduce();
 martha.calcAge();
+*/
+
+///////////////////////////////////////
+// Inheritance Between "Classes": Object.create
+
+// Prototype
+const PersonProto = {
+  calcAge() {
+    console.log(2037 - this.birthYear);
+  },
+
+  init(firstName, birthYear) {
+    this.firstName = firstName;
+    this.birthYear = birthYear;
+  },
+};
+
+// new person object
+const steven = Object.create(PersonProto);
+
+const StudentProto = Object.create(PersonProto);
+StudentProto.init = function (firstName, birthYear, course) {
+  PersonProto.init.call(this, firstName, birthYear);
+  this.course = course;
+};
+
+StudentProto.introduce = function () {
+  console.log(`My name is ${this.firstName} and I study ${this.course}`);
+};
+
+const jay = Object.create(StudentProto); //The StudentProto object that was created earlier, is now the prototype off the jay object.
+jay.init('Jay', 2010, 'Computer Science');
+jay.introduce();
+jay.calcAge();
