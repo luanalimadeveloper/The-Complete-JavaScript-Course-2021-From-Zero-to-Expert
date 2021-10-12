@@ -26,7 +26,7 @@ const renderCountry = function (data, className) {
   countriesContainer.insertAdjacentHTML('beforeend', html);
   countriesContainer.style.opacity = 1;
 };
-
+/*
 const getCountryAndNeighbour = function (country) {
   // AJAX call country 1
   const request = new XMLHttpRequest();
@@ -63,3 +63,32 @@ const getCountryAndNeighbour = function (country) {
 };
 
 getCountryAndNeighbour('germany');
+
+*/
+
+///////////////////////////////////////
+// Promises and the Fetch API
+
+// const getCountryData = function (country) {
+//   fetch(`https://restcountries.com/v2/name/${country}`)
+//     .then(function (response) {
+//       console.log(response);
+//       return response.json();
+//     })
+//     .then(function (data) {
+//       console.log(data);
+//       renderCountry(data[0]);
+//     });
+// };
+
+// 1. fetch something
+// 2. get a response which will be transformed to json
+// 3. take the data and render the country to the DOM.
+
+const getCountryData = function (country) {
+  fetch(`https://restcountries.com/v2/name/${country}`)
+    .then(response => response.json())
+    .then(data => renderCountry(data[0]));
+};
+
+getCountryData('germany');
