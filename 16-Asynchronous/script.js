@@ -83,12 +83,25 @@ getCountryAndNeighbour('germany');
 
 // 1. fetch something
 // 2. get a response which will be transformed to json
-// 3. take the data and render the country to the DOM.
-
+// 3. take the data and render the country to the DOM
+// 4. soon as we get the data, then we need to get the neighbor country and do the Ajax call for that one
 const getCountryData = function (country) {
+  //  Country 1
   fetch(`https://restcountries.com/v2/name/${country}`)
     .then(response => response.json())
-    .then(data => renderCountry(data[0]));
+    .then(data => {
+      renderCountry(data[0]);
+      const neighbour = data[0].borders[0];
+      console.log(data[0]);
+      console.log(neighbour);
+
+      if (!neighbour) return;
+
+      // Country 2
+      return fetch(`https://restcountries.com/v2/alpha/${neighbour}`);
+    })
+    .then(response => response.json())
+    .then(data => renderCountry(data, 'neighbour'));
 };
 
 getCountryData('germany');
