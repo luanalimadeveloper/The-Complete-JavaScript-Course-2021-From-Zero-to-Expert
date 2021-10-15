@@ -251,6 +251,7 @@ whereAmI(52.508, 13.381);
 //whereAmI(-33.933, 18.474);
 */
 
+/*
 ///////////////////////////////////////
 // The Event Loop in Practice
 
@@ -264,3 +265,84 @@ Promise.resolve('Resolved promise 2').then(res => {
 });
 
 console.log('Test end');
+
+*/
+
+///////////////////////////////////////
+// Building a Simple Promise
+
+//  the name of this function() is executor
+// const lotteryPromise = new Promise(function (resolve, reject) {
+//   if (Math.random() >= 0.5) {
+//     resolve('You WIN 😎!');
+//   } else {
+//     reject('You lost your money 💩');
+//   }
+// });
+
+// lotteryPromise.then(res => console.log(res)).catch(err => console.error(err));
+
+const lotteryPromise = new Promise(function (resolve, reject) {
+  console.log('Lotter draw is happening 🍀');
+  setTimeout(function () {
+    if (Math.random() >= 0.5) {
+      resolve('You WIN 😎!');
+    } else {
+      reject(new Error('You lost your money 💩'));
+    }
+  }, 2000);
+});
+
+lotteryPromise.then(res => console.log(res)).catch(err => console.error(err));
+
+// Promisifying setTimeout
+// const wait = function (seconds) {
+//   return new Promise(function (resolve) {
+//     setTimeout(resolve, seconds * 1000);
+//   });
+// };
+// wait(2)
+//   .then(() => {
+//     console.log('I waited for 2 seconds');
+//     return wait(1);
+//   })
+//   .then(() => console.log('I waited for 1 second'));
+
+// beautiful sequence of asynchronous behavior.
+const wait = function (seconds) {
+  return new Promise(function (resolve) {
+    setTimeout(resolve, seconds * 1000);
+  });
+};
+wait(1)
+  .then(() => {
+    console.log('1 second passed');
+    return wait(1);
+  })
+  .then(() => {
+    console.log('2 second passed');
+    return wait(1);
+  })
+  .then(() => {
+    console.log('3 second passed');
+    return wait(1);
+  })
+  .then(() => console.log('4 second passed'));
+
+// getCountryAndNeighbour('usa');
+// setTimeout(() => {
+//   console.log('1 second passed');
+//   setTimeout(() => {
+//     console.log('2 seconds passed');
+//     setTimeout(() => {
+//       console.log('3 second passed');
+//       setTimeout(() => {
+//         console.log('4 second passed');
+//       }, 1000);
+//     }, 1000);
+//   }, 1000);
+// }, 1000);
+
+// A fulfielled or a rejected promise immediately
+Promise.resolve('abc').then(x => console.log(x));
+Promise.reject(new Error('Problem!')).catch(x => console.error(x));
