@@ -481,6 +481,7 @@ createImage('img/img-1.jpg')
 // Inside an a sync function, we can have one or more await statements
 // Await until the value of the promise is returned.And then assign that value to a variable.
 
+/*
 const getPosition = function () {
   return new Promise(function (resolve, reject) {
     navigator.geolocation.getCurrentPosition(resolve, reject);
@@ -544,3 +545,26 @@ console.log('1: Will get location');
   }
   console.log('3: Finished getting location');
 })();
+*/
+
+///////////////////////////////////////
+// Running Promises in Parallel
+
+const get3Countries = async function (c1, c2, c3) {
+  try {
+    // const [data1] = await getJSON(`https://restcountries.com/v2/name/${c1}`);
+    // const [data2] = await getJSON(`https://restcountries.com/v2/name/${c2}`);
+    // const [data3] = await getJSON(`https://restcountries.com/v2/name/${c2}`);
+
+    const data = await Promise.all([
+      getJSON(`https://restcountries.com/v2/name/${c1}`),
+      getJSON(`https://restcountries.com/v2/name/${c2}`),
+      getJSON(`https://restcountries.com/v2/name/${c2}`),
+    ]);
+    console.log(data.map(d => d[0].capital));
+  } catch (err) {
+    console.error(err);
+  }
+};
+
+get3Countries('portugal', 'canada', 'tanzania');
