@@ -651,7 +651,9 @@ const wait = function (seconds) {
     setTimeout(resolve, seconds * 1000);
   });
 };
+
 const imgContainer = document.querySelector('.images');
+
 const createImage = function (imgPath) {
   return new Promise(function (resolve, reject) {
     const img = document.createElement('img');
